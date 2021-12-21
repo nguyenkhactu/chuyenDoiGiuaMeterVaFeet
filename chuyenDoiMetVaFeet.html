@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa meters và feet</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>
+            <select id="inputValue">
+                <option value="met1"  >Meters</option>
+                <option value="feet1"  >Feet</option>
+            </select>
+        </td>
+        <td>
+            <select id="outputValue">
+                <option value="feet2" >Feet</option>
+                <option value="met2"  >Meters</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="điền thông số vào đây" onchange="total()" id="cong3">
+        </td>
+        <td>
+            <P id="ketQua">Kết quả
+            </P>
+        </td>
+    </tr>
+</table>
+
+</body>
+<script>
+    function convertMetersToFeet(number1){
+        return(number1 * 3.279);
+    }
+    function convertFeetToMeters(number2){
+        return(number2 * 0.305);
+    }
+    function total(){
+        let value1 = document.getElementById("inputValue").value;
+        let value2 = document.getElementById("outputValue").value;
+        let value3 = parseInt(document.getElementById("cong3").value);
+        console.log(value3)
+        if (value1 === "met1" && value2 === "met2"){
+            document.getElementById("ketQua").innerHTML= value3;
+        }
+        else if (value1 === "feet1"&& value2 === "feet2"){
+            document.getElementById("ketQua").innerHTML= value3;
+        }
+        else if (value1 === "met1" && value2 === "feet2"){
+            document.getElementById("ketQua").innerHTML = convertMetersToFeet(value3);
+        }
+        else {
+            document.getElementById("ketQua").innerHTML = convertFeetToMeters(value3);
+        }
+    }
+</script>
+</html>
